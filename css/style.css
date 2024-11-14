@@ -845,12 +845,16 @@ a:focus {
 }
 
 .info_section .info_social img {
-  width: 40px;
+  width: 50px;   /* Tamaño uniforme */
+  height: 50px;  /* Tamaño uniforme */
+  object-fit: contain;  /* Ajusta la imagen sin distorsionarla */
   margin-left: 8px;
+  display: inline-block;
 }
 
+
 .info_section p {
-  margin: 35px 0 0 0;
+  margin: 30px 0 0 0;
 }
 
 /* footer section*/
@@ -869,6 +873,63 @@ a:focus {
 .footer_section a {
   color: #292929;
 }
+
+/* Ajuste del tamaño y posición del logo del header */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alineación inicial */
+  padding-left: 120px; /* Ajusta el valor según cuánto lo quieras mover a la derecha */
+  padding-top: 15px; /* Mueve el logo hacia abajo */
+  padding-bottom: 10px; /* Mueve el logo hacia arriba */
+}
+/* Ajuste del tamaño del logo del header */
+.navbar-brand img {
+  width: 50px; /* Ajusta este valor al tamaño deseado */
+  height: auto; /* Mantiene la proporción de la imagen */
+  max-height: 80px; /* Puedes ajustar este valor si es necesario */
+}
+/* Estilo de la barra de encabezado */
+.header_section {
+  background-color: #1e025b;
+  padding: 15px 0; /* Altura inicial mayor para un cambio más visible */
+  transition: all 0.3s ease; /* Transición suave para todos los cambios */
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+}
+
+/* Efecto al hacer scroll */
+.header_section.scrolled {
+  padding: 5px 0; /* Reduce el padding al hacer scroll */
+  background-color: #10023b; /* Cambia ligeramente el color de fondo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Agrega una sombra para el efecto */
+  transform: translateY(-5px); /* Mueve ligeramente hacia arriba para dar efecto de animación */
+}
+
+
+/* Ajuste del logo en el header para menos altura */
+.navbar-brand img {
+  width: 100px; /* Ajusta según el tamaño deseado */
+  max-height: 100px;
+}
+/* Ajuste del header fijo para evitar superposición */
+.header_section {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+/* Añadir espacio al contenido para evitar solapamiento */
+.hero_area + .layout_padding {
+  padding-top: 200px; /* Ajusta según la altura de tu header */
+}
+/* Añadir espacio superior para evitar solapamiento con el header */
+.layout_padding {
+  padding-top: 100px; /* Ajusta según la altura del header */
+}
+
 
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */

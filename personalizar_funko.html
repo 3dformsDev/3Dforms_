@@ -18,13 +18,13 @@
                 <nav class="navbar navbar-expand-lg custom_nav-container ">
                     <a class="navbar-brand" href="index.html">
                         <img src="images/logo 3DFORMS.png" alt="3DForms Logo" style="width: 150px;">
-                        <span>@3DFORMS_</span>
+                        <span>
+                            <!--@3DFORMS_ -->
+                        </span>
                     </a>
                 </nav>
             </div>
         </header>
-        
-        <!-- End Header Section -->
     </div>
 
     <!-- Formulario de Personalización -->
@@ -37,6 +37,13 @@
             <form id="funkoForm">
                 <div class="form-group">
                     <input type="text" class="form-control" id="nombre" placeholder="Nombre de la Mascota" required>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" id="tipo" required>
+                        <option value="">Selecciona Tipo</option>
+                        <option value="Perruno">Perruno</option>
+                        <option value="Gatuno">Gatuno</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <select class="form-control" id="sexo" required>
@@ -65,6 +72,15 @@
         </div>
     </section>
 
+    <!-- Pop-up Modal de Confirmación -->
+    <div id="confirmacionModal" class="modal">
+        <div class="modal-content">
+            <h3>¡Una cosa más!</h3>
+            <p>Recuerda enviarnos vía WhatsApp algunas fotos de tu mascota para usarlas como referencia.</p>
+            <button id="enviarWhatsApp" class="btn-modal">Enviar</button>
+        </div>
+    </div>
+
     <!-- Info Section -->
     <section class="info_section layout_padding">
         <div class="container">
@@ -82,29 +98,98 @@
         <p>&copy; 2024 All Rights Reserved By <a href="https://html.design/">Free Html Templates</a></p>
     </section>
 
-    <!-- JavaScript -->
+    <!-- JavaScript para el Formulario y Pop-up Modal -->
     <script>
         function enviarWhatsApp() {
-            const mensaje = "Formulario enviado con éxito";
-            const whatsappUrl = `https://wa.me/573132261027?text=${encodeURIComponent(mensaje)}`;
-            window.location.href = whatsappUrl;
+            // Capturar los valores del formulario
+            const nombre = document.getElementById("nombre").value;
+            const tipo = document.getElementById("tipo").value;
+            const sexo = document.getElementById("sexo").value;
+            const colorCuerpo = document.getElementById("colorCuerpo").value;
+            const colorOjos = document.getElementById("colorOjos").value;
+            const detalles = document.getElementById("detalles").value;
+            const contacto = document.getElementById("contacto").value;
+            const telefono = document.getElementById("telefono").value;
+
+            // Crear el mensaje para WhatsApp con negrilla y formato adecuado
+            const mensaje = 
+                `*Personalización de Funko*%0A%0A` +
+                `*Tipo:* ${tipo}%0A` +
+                `*Nombre:* ${nombre}%0A` +
+                `*Sexo:* ${sexo}%0A` +
+                `*Color del Cuerpo:* ${colorCuerpo}%0A` +
+                `*Color de los Ojos:* ${colorOjos}%0A` +
+                `*Detalles Adicionales:* ${detalles}%0A%0A` +
+                `*Información de Contacto*%0A` +
+                `*Nombre:* ${contacto}%0A` +
+                `*Teléfono:* ${telefono}`;
+
+            const whatsappUrl = `https://wa.me/573132261027?text=${mensaje}`;
+
+            // Mostrar el pop-up modal
+            const modal = document.getElementById("confirmacionModal");
+            modal.style.display = "block";
+
+            // Enviar a WhatsApp en una nueva pestaña
+            document.getElementById("enviarWhatsApp").onclick = () => {
+                window.open(whatsappUrl, '_blank');
+                alert("Formulario enviado, en breve nos comunicaremos contigo.");
+                window.location.href = "index.html";
+            };
         }
     </script>
 
+    <!-- Estilos para Pop-up y Botón Animado -->
     <style>
-        /* Animación del botón */
-        .btn-animado {
-            transition: transform 0.2s ease;
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
         }
 
-        .btn-animado:hover {
-            transform: scale(1.05);
+        .modal-content {
+            background-color: #f8f9fa;
+            margin: 15% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 8px;
+            text-align: center;
         }
 
-        .btn-animado:active {
-            transform: scale(0.95);
+        .btn-modal {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
         }
     </style>
+    <script>
+        const header = document.querySelector('.header_section');
+    
+        // Función para activar el efecto de header
+        function checkScroll() {
+            if (window.scrollY > 10) { // Usamos 10px como valor mínimo para páginas cortas
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+    
+        // Verificar scroll al cargar la página
+        window.addEventListener('load', checkScroll);
+        // Verificar scroll al hacer scroll
+        window.addEventListener('scroll', checkScroll);
+    </script>
+    
+    
+    
 </body>
 
 </html>

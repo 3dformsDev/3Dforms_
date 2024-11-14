@@ -36,9 +36,9 @@
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
-            <img src="images/loggrande.png" alt="">
+            <img src="images/logo 3DFORMS.png" alt="">
             <span>
-              @3dforms_
+              <!-- @3DFORMS_ -->
             </span>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -202,7 +202,7 @@
         </div>
         <div>
           <a href="">
-            <img src="images/linkedin.png" alt="">
+            <img src="images/tikitoko2.png" alt="">
           </a>
         </div>
         <div>
@@ -213,7 +213,7 @@
       </div>
       <div>
         <p>
-          Creada por Eduard Acosta ficha 2721486 ADSO - SENA 2024 -
+          Creada por Eduard Acosta y Erica Marín  ficha 2721486 ADSO - SENA 2024 - 
         </p>
       </div>
     </div>
@@ -232,6 +232,25 @@
 
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script>
+    const header = document.querySelector('.header_section');
+
+    // Función para activar el efecto de header
+    function checkScroll() {
+        if (window.scrollY > 10) { // Usamos 10px como valor mínimo para páginas cortas
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    }
+
+    // Verificar scroll al cargar la página
+    window.addEventListener('load', checkScroll);
+    // Verificar scroll al hacer scroll
+    window.addEventListener('scroll', checkScroll);
+</script>
+
+
 
 </body>
 </body>
