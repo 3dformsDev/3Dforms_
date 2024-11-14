@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalizar Funko</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body class="sub_page">
+    <div class="hero_area">
+        <!-- Header Section -->
+        <header class="header_section">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="images/logo 3DFORMS.png" alt="3DForms Logo" style="width: 150px;">
+                        <span>@3DFORMS_</span>
+                    </a>
+                </nav>
+            </div>
+        </header>
+        
+        <!-- End Header Section -->
+    </div>
+
+    <!-- Formulario de Personalización -->
+    <section class="layout_padding">
+        <div class="container">
+            <div class="custom_heading-container">
+                <h2>Personaliza tu Funko</h2>
+                <hr>
+            </div>
+            <form id="funkoForm">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre de la Mascota" required>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" id="sexo" required>
+                        <option value="">Sexo</option>
+                        <option value="Macho">Macho</option>
+                        <option value="Hembra">Hembra</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="colorCuerpo" placeholder="Color del Cuerpo" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="colorOjos" placeholder="Color de los Ojos" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" id="detalles" placeholder="Detalles Adicionales"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="contacto" placeholder="Tu Nombre" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="telefono" placeholder="Teléfono/WhatsApp" required>
+                </div>
+                <button type="button" class="btn btn-primary btn-animado" onclick="enviarWhatsApp()">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info_section layout_padding">
+        <div class="container">
+            <div class="info_social">
+                <a href="#"><img src="images/fb.png" alt=""></a>
+                <a href="#"><img src="images/twitter.png" alt=""></a>
+                <a href="#"><img src="images/linkedin.png" alt=""></a>
+                <a href="#"><img src="images/insta.png" alt=""></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="container-fluid footer_section">
+        <p>&copy; 2024 All Rights Reserved By <a href="https://html.design/">Free Html Templates</a></p>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        function enviarWhatsApp() {
+            const mensaje = "Formulario enviado con éxito";
+            const whatsappUrl = `https://wa.me/573132261027?text=${encodeURIComponent(mensaje)}`;
+            window.location.href = whatsappUrl;
+        }
+    </script>
+
+    <style>
+        /* Animación del botón */
+        .btn-animado {
+            transition: transform 0.2s ease;
+        }
+
+        .btn-animado:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-animado:active {
+            transform: scale(0.95);
+        }
+    </style>
+</body>
+
+</html>
