@@ -933,3 +933,26 @@ a:focus {
 
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */
+
+/* Estilo para el botón personalizado */
+.btn-custom {
+  display: inline-block;
+  font-size: 20px; /* Ajusta el tamaño del texto */
+  padding: 15px 30px; /* Tamaño del botón */
+  color: #ffffff; /* Color del texto */
+  background-color: #1e025b; /* Color de fondo del botón */
+  border: 2px solid #ffffff; /* Borde del botón */
+  border-radius: 8px; /* Esquinas redondeadas */
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s ease; /* Suaviza las transiciones */
+}
+
+/* Animación al pasar el cursor */
+.btn-custom:hover {
+  background-color: #3f0db8; /* Cambio de color de fondo */
+  border-color: #ffffff; /* Mantiene el borde blanco */
+  transform: scale(1.1); /* Aumenta el tamaño ligeramente */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Sombra al pasar el cursor */
+}
