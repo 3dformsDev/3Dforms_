@@ -65,7 +65,7 @@ body {
 
 .header_section {
   background-color: #1e025b;
-  padding: 10px 0;
+  padding: 2px 0;
 }
 
 .header_section .container-fluid {
@@ -207,7 +207,7 @@ a:focus {
   background-color: transparent;
   color: #ffffff;
   border-radius: 25px;
-  margin-top: 35px;
+  margin-top: 5px;
 }
 
 .slider_section .detail-box .slider-link:hover {
@@ -224,6 +224,8 @@ a:focus {
 
 .slider_section .img-box img {
   width: 100%;
+  height: 50%;
+  object-fit: cover;
 }
 
 .slider_section .slider_bg-container {
