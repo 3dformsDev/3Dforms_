@@ -65,12 +65,18 @@ body {
 
 .header_section {
   background-color: #1e025b;
-  padding: 2px 0;
+  position: relative; /* ¡Añade esto si no existe! */
+  padding: 10px 0; /* Cambiado de 2px a 10px (ajustable) */
+  height: 80px; /* Altura fija */
+  display: flex;
+  align-items: center; /* Centra verticalmente todo el contenido */
 }
 
 .header_section .container-fluid {
   padding-right: 25px;
   padding-left: 25px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .header_section .nav_container {
@@ -90,7 +96,7 @@ body {
 }
 
 .custom_nav-container.navbar-expand-lg .navbar-nav .nav-link {
-  padding: 10px 20px;
+  padding: 5px 15px; /* Reducido de 10px 20px */
   color: #dbdada;
   text-align: center;
   text-transform: uppercase;
@@ -146,7 +152,7 @@ a:focus {
 }
 
 .navbar-brand img {
-  width: 40px;
+  width: 30px; /* Reducido de 40px */
   margin-right: 5px;
 }
 
@@ -163,12 +169,103 @@ a:focus {
 }
 
 .custom_nav-container .navbar-toggler {
-  outline: none;
+  border: none;
+  padding: 0;
+  margin-left: auto; /* Lo coloca a la derecha */
+}
+
+.custom_nav-container .navbar-toggler:focus {
+  outline: none; /* Elimina el borde al hacer clic */
 }
 
 .custom_nav-container .navbar-toggler .navbar-toggler-icon {
   background-image: url(../images/menu.png);
   background-size: 40px;
+}
+
+/* Menú Hamburguesa Mejorado */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    border-radius: 0 0 15px 15px; /* Bordes redondeados abajo */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    overflow: hidden; /* Para que los bordes redondeados funcionen */
+  }
+
+  .navbar-nav .nav-link {
+    transition: all 0.3s ease; /* Transición suave para hover */
+    position: relative;
+  }
+
+  .navbar-nav .nav-link:hover {
+    background: rgba(255, 255, 255, 0.1); /* Resaltado al pasar cursor */
+    transform: translateX(5px); /* Efecto de movimiento */
+  }
+
+  .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3); /* Línea divisoria sutil */
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); /* Resaltado al hacer clic */
+  }
+}
+/* === HASTA AQUÍ === */
+
+/* [El resto de tus estilos...] */
+/* ------------------------- */
+/* Menú Desplegable Móvil */
+/* ------------------------- */
+.navbar-collapse {
+  position: absolute;
+  top: 100%; /* Justo debajo del header */
+  left: 0;
+  width: 100%;
+  background-color: #1e025b; /* Mismo color del header */
+  z-index: 1000;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-collapse.show {
+  max-height: 500px; /* Altura máxima al desplegar */
+  padding: 20px 0;
+}
+
+.custom_nav-container .navbar-nav {
+  width: 100%;
+  text-align: center;
+}
+
+.custom_nav-container .navbar-nav .nav-link {
+  display: block; /* Cada link en una línea */
+  padding: 10px 0;
+  margin: 0 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador sutil */
+  color: #ffffff !important; /* Forzar color blanco */
+}
+
+/* Ajustes para pantallas grandes (evitar superposición) */
+@media (min-width: 992px) {
+  .navbar-collapse {
+    position: relative;
+    max-height: none;
+    overflow: visible;
+    background-color: transparent;
+    box-shadow: none;
+  }
+  .custom_nav-container .navbar-nav .nav-link {
+    display: inline-block; /* Links en línea */
+    border-bottom: none;
+    padding: 5px 15px;
+  }
 }
 
 /*end header section*/
@@ -957,4 +1054,43 @@ a:focus {
   border-color: #ffffff; /* Mantiene el borde blanco */
   transform: scale(1.1); /* Aumenta el tamaño ligeramente */
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Sombra al pasar el cursor */
+}
+
+/* ---------------------------------- */
+/* Menú Móvil (Bootstrap 4 compatible) */
+/* ---------------------------------- */
+@media (max-width: 991.98px) {
+  /* Fondo y caja del menú desplegado */
+  .navbar-collapse {
+    background-color: #1e025b !important;
+    position: absolute !important;
+    top: 80px !important; /* Ajusta según la altura de tu header */
+    left: 0;
+    width: 100%;
+    padding: 15px 0 !important;
+    z-index: 1000;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Links del menú en columna */
+  .navbar-nav {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 5px 0;
+  }
+
+  .navbar-nav .nav-link {
+    color: #fff !important;
+    padding: 8px 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: block !important;
+  }
+
+  /* Oculta el ícono de "current" en móviles */
+  .sr-only {
+    display: none !important;
+  }
 }
